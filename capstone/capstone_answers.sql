@@ -36,7 +36,11 @@ ORDER BY tracks.duration DESC
 LIMIT 1;
     
 -- Q6: Track count per album, sorted by count descending.
-
+SELECT albums.title, COUNT(tracks.id) AS track_count
+FROM albums
+JOIN tracks ON albums.id = tracks.album_id
+GROUP BY albums.id
+ORDER BY track_count DESC;
 
 -- Q7: Artists with more than one album.
 
