@@ -146,4 +146,4 @@ Exercise 11   →  Relate tables (JOINs, foreign keys)
 Exercise 12   →  Performance (indexes, EXPLAIN QUERY PLAN)
      ↓
 Capstone      →  Apply everything on a fresh dataset
-```
+``
