@@ -7,17 +7,19 @@ FROM artists
 ORDER BY name ASC;
 
 -- Q2: How many albums are in the catalog?
-SELECT COUNT(*) FROM albums
+SELECT COUNT(*) AS total_albums
+FROM albums;
 
 -- Q3: Which genre has the most albums? (genre name and count)
-SELECT genre, COUNT(*) AS album_count
+SELECT genre, name COUNT(*) AS album_count
 FROM albums
-GROUP BY genre
+GROUP BY genre.id
+JOIN genres ON albums.genre_id = genres.id
 ORDER BY album_count DESC
 LIMIT 1;
 
 -- Q4: Album titles released before 1970, with artist name.
-SELECT albums_title, artists_name
+SELECT albums.title, artists.name
 FROM albums
 JOIN artists ON albums.artist_id = artists.id
 WHERE albums.release_year < 1970;
