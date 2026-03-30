@@ -17,11 +17,22 @@ ORDER BY album_count DESC
 LIMIT 1;
 
 -- Q4: Album titles released before 1970, with artist name.
-
+SELECT albums_title, artists_name
+FROM albums
+JOIN artists ON albums.artist_id = artists.id
+WHERE albums.release_year < 1970;
 
 -- Q5: Longest track — title, album title, duration as MM:SS.
 
-
+SELECT 
+    tracks.title,
+    albums.title AS album_title,
+    (tracks.duration / 60) || ':' || printf('%02d', tracks.duration % 60) AS duration_mmss
+FROM tracks
+JOIN albums ON tracks.album_id = albums.id
+ORDER BY tracks.duration DESC
+LIMIT 1;
+    
 -- Q6: Track count per album, sorted by count descending.
 
 
