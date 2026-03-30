@@ -10,7 +10,11 @@ ORDER BY name ASC;
 SELECT COUNT(*) FROM albums
 
 -- Q3: Which genre has the most albums? (genre name and count)
-SELECT COUNT(albums) FROM genres ;
+SELECT genre, COUNT(*) AS album_count
+FROM albums
+GROUP BY genre
+ORDER BY album_count DESC
+LIMIT 1;
 
 -- Q4: Album titles released before 1970, with artist name.
 
